@@ -8,6 +8,8 @@ interface HeaderProps {
   toggleTheme: () => void;
 }
 
+import logo from '../assets/logo.png';
+
 export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,7 +49,7 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3 group cursor-pointer">
             <img
-              src="/assets/logo.png"
+              src={logo}
               alt="Sinai Connect Logo"
               className="w-16 h-16 object-contain group-hover:scale-105 transition-transform duration-300"
             />

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Activity } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
 import { useLanguage } from '../utils/i18n';
+import medicalSupport from '../assets/MedicalSupport.png';
 
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
@@ -111,7 +112,7 @@ export const Hero: React.FC = () => {
         >
           <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white dark:border-slate-800 group transition-colors duration-300">
             <img
-              src="/assets/Medical%20Support.png"
+              src={medicalSupport}
               alt="Medical Support Team"
               className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[2s]"
             />

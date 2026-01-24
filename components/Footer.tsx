@@ -2,6 +2,8 @@ import React from 'react';
 import { Mail, Phone } from 'lucide-react';
 import { useLanguage } from '../utils/i18n';
 
+import logo from '../assets/logo.png';
+
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
 
@@ -14,7 +16,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <img
-                src="/assets/logo.png"
+                src={logo}
                 alt="Sinai Connect Logo"
                 className="w-12 h-12 object-contain"
               />
