@@ -22,8 +22,8 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
   });
 
   const navLinks = [
-    { name: t.nav.solutions, href: '#services' },
     { name: t.nav.whyUs, href: '#why-partner' },
+    { name: t.nav.solutions, href: '#services' },
     { name: t.nav.mission, href: '#mission' },
     { name: t.nav.careers, href: '#careers' },
   ];
@@ -49,7 +49,7 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
             <img
               src="/assets/logo.png"
               alt="Sinai Connect Logo"
-              className="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-300"
+              className="w-16 h-16 object-contain group-hover:scale-105 transition-transform duration-300"
             />
             <div className="flex flex-col">
               <span className={`font-display font-bold text-lg leading-tight tracking-tight transition-colors duration-300 ${isScrolled ? 'text-slate-900 dark:text-white' : 'text-slate-900 dark:text-white'}`}>

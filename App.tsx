@@ -6,6 +6,7 @@ import { Solutions } from './components/Solutions';
 import { Mission } from './components/Mission';
 import { Careers } from './components/Careers';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 import { LanguageProvider } from './utils/i18n';
 
 function AppContent() {
@@ -34,6 +35,7 @@ function AppContent() {
       </main>
 
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

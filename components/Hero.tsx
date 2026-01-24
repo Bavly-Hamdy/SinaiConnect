@@ -111,7 +111,7 @@ export const Hero: React.FC = () => {
         >
           <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white dark:border-slate-800 group transition-colors duration-300">
             <img
-              src="/assets/hero-bg.jpg"
+              src="/assets/Medical%20Support.png"
               alt="Medical Support Team"
               className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[2s]"
             />
