@@ -16,7 +16,7 @@ export const translations = {
       tag: 'Medical & Clinic Support',
       headlineStart: 'Your Bridge',
       headlineEnd: 'to Success',
-      subhead: 'Behind every call is a team that listens, understands, and cares. We go beyond communication to build trust, comfort, and lasting relationships.',
+      subhead: 'Behind every call is a team that listens, understands, and cares. We go beyond communication to build trust, comfort, and lasting relationships through respect, dedication, and excellence.',
       cta: "Let's Connect",
       services: 'View Services',
       statLabel: 'Patient Satisfaction',
@@ -26,20 +26,16 @@ export const translations = {
       tag: 'Comprehensive Care',
       title: 'Support Services',
       tabs: {
-        medical: 'Medical Support',
-        customer: 'Customer Care'
+        medical: 'Medical Support'
       },
       medical: [
-        { title: 'Appointment Management', desc: 'Schedule and confirm patient appointments seamlessly.' },
-        { title: 'Insurance Verification', desc: 'Real-time eligibility checks to streamline revenue.' },
-        { title: 'Patient Outreach', desc: 'Proactive health campaigns and follow-up care.' },
-        { title: 'After Hours Support', desc: '24/7 reassurance for your patients.' }
-      ],
-      customer: [
-        { title: 'Inbound Support', desc: 'Professional handling of all incoming inquiries.' },
-        { title: 'Omnichannel Support', desc: 'Email, Chat, and SMS management in one place.' },
-        { title: 'Order Taking', desc: 'Secure and efficient order processing.' },
-        { title: 'Feedback Collection', desc: 'Gathering insights to improve your business.' }
+        'Schedule and confirm patient appointments.',
+        'Manage inbound and outbound calls through your clinic system.',
+        'Reschedule missed visits and fill open slots.',
+        'Book follow ups and verify insurance.',
+        'Provide after hours support and reassurance.',
+        'Run outreach campaigns to grow and engage patients.',
+        'Gather feedback and share insights to improve care and efficiency.'
       ]
     },
     why: {
@@ -62,10 +58,10 @@ export const translations = {
     mission: {
       purpose: 'Purpose',
       missionTitle: 'Our Mission',
-      missionDesc: 'To deliver meaningful customer experiences through skilled communication, smart technology, and intelligent solutions.',
+      missionDesc: 'To deliver meaningful customer experiences through skilled communication, smart technology, and intelligent soulutions. Our focus on helping every partner connect, engage, and grow with confidence.',
       future: 'Future',
       visionTitle: 'Our Vision',
-      visionDesc: 'To become the trusted communication partner known for excellence, integrity, and care.',
+      visionDesc: 'To become the trusted communication partner known for excellence, integrity, and care, not just answering calls, but creating meaningful human interactions with warm connection.',
       cardTitle: 'The Connection That Drives Success',
       cardDesc: 'We create the environment where your patients feel heard.'
     },
@@ -152,20 +148,16 @@ export const translations = {
       tag: 'رعاية شاملة',
       title: 'خدمات الدعم',
       tabs: {
-        medical: 'الدعم الطبي',
-        customer: 'خدمة العملاء'
+        medical: 'الدعم الطبي'
       },
       medical: [
-        { title: 'إدارة المواعيد', desc: 'جدولة وتأكيد مواعيد المرضى بسلاسة.' },
-        { title: 'التحقق من التأمين', desc: 'فحوصات فورية للأهلية لتبسيط العوائد.' },
-        { title: 'التواصل مع المرضى', desc: 'حملات صحية استباقية ومتابعة الرعاية.' },
-        { title: 'دعم خارج أوقات العمل', desc: 'اطمئنان لمرضاك على مدار ٢٤ ساعة.' }
-      ],
-      customer: [
-        { title: 'الدعم الوارد', desc: 'تعامل احترافي مع جميع الاستفسارات الواردة.' },
-        { title: 'دعم متعدد القنوات', desc: 'إدارة البريد الإلكتروني والدردشة والرسائل في مكان واحد.' },
-        { title: 'استلام الطلبات', desc: 'معالجة الطلبات بشكل آمن وفعال.' },
-        { title: 'جمع الملاحظات', desc: 'جمع الآراء لتحسين عملك.' }
+        'جدولة وتأكيد مواعيد المرضى.',
+        'إدارة المكالمات الواردة والصادرة عبر نظام عيادتك.',
+        'إعادة جدولة الزيارات الفائتة وملء الأوقات المفتوحة.',
+        'حجز المتابعة والتحقق من التأمين.',
+        'تقديم الدعم والطمأنينة خارج ساعات العمل.',
+        'إجراء حملات للتواصل لنمو وإشراك المرضى.',
+        'جمع الملاحظات ومشاركة الأفكار لتحسين الرعاية والكفاءة.'
       ]
     },
     why: {
@@ -191,7 +183,7 @@ export const translations = {
       missionDesc: 'تقديم تجارب عملاء هادفة من خلال التواصل الماهر والتكنولوجيا الذكية والحلول المبتكرة.',
       future: 'المستقبل',
       visionTitle: 'رؤيتنا',
-      visionDesc: 'أن نصبح شريك التواصل الموثوق المعروف بالتميز والنزاهة والرعاية.',
+      visionDesc: 'أن نصبح شريك التواصل الموثوق المعروف بالتميز والنزاهة والرعاية، ليس فقط للرد على المكالمات، بل لخلق تفاعلات إنسانية هادفة مع اتصال دافئ.',
       cardTitle: 'التواصل الذي يقود النجاح',
       cardDesc: 'نخلق البيئة التي يشعر فيها مرضاك بأنهم مسموعون.'
     },
@@ -278,20 +270,16 @@ export const translations = {
       tag: 'Atención Integral',
       title: 'Servicios de Apoyo',
       tabs: {
-        medical: 'Soporte Médico',
-        customer: 'Atención al Cliente'
+        medical: 'Soporte Médico'
       },
       medical: [
-        { title: 'Gestión de Citas', desc: 'Programación y confirmación de citas sin problemas.' },
-        { title: 'Verificación de Seguros', desc: 'Chequeos de elegibilidad en tiempo real.' },
-        { title: 'Alcance al Paciente', desc: 'Campañas de salud proactivas y seguimiento.' },
-        { title: 'Soporte Fuera de Horario', desc: 'Tranquilidad 24/7 para tus pacientes.' }
-      ],
-      customer: [
-        { title: 'Soporte Entrante', desc: 'Manejo profesional de todas las consultas.' },
-        { title: 'Soporte Omnicanal', desc: 'Gestión de Email, Chat y SMS en un solo lugar.' },
-        { title: 'Toma de Pedidos', desc: 'Procesamiento de pedidos seguro y eficiente.' },
-        { title: 'Recolección de Feedback', desc: 'Obtención de ideas para mejorar tu negocio.' }
+        'Programar y confirmar citas de pacientes.',
+        'Gestionar llamadas entrantes y salientes a través del sistema de su clínica.',
+        'Reprogramar visitas perdidas y llenar espacios abiertos.',
+        'Reservar seguimientos y verificar seguros.',
+        'Proporcionar apoyo y tranquilidad fuera de horario.',
+        'Ejecutar campañas de divulgación para crecer e involucrar pacientes.',
+        'Recopilar comentarios y compartir ideas para mejorar la atención y eficiencia.'
       ]
     },
     why: {
@@ -317,7 +305,7 @@ export const translations = {
       missionDesc: 'Ofrecer experiencias significativas a través de comunicación experta y tecnología inteligente.',
       future: 'Futuro',
       visionTitle: 'Nuestra Visión',
-      visionDesc: 'Convertirnos en el socio de comunicación de confianza conocido por la excelencia.',
+      visionDesc: 'Convertirnos en el socio de comunicación de confianza conocido por la excelencia, integridad y cuidado, no solo respondiendo llamadas, sino creando interacciones humanas significativas con conexión cálida.',
       cardTitle: 'La Conexión que Impulsa el Éxito',
       cardDesc: 'Creamos el entorno donde sus pacientes se sienten escuchados.'
     },
@@ -404,20 +392,16 @@ export const translations = {
       tag: 'Umfassende Pflege',
       title: 'Unterstützungsdienste',
       tabs: {
-        medical: 'Medizinische Unterstützung',
-        customer: 'Kundendienst'
+        medical: 'Medizinische Unterstützung'
       },
       medical: [
-        { title: 'Terminverwaltung', desc: 'Nahtlose Terminplanung und Bestätigung.' },
-        { title: 'Versicherungsprüfung', desc: 'Echtzeit-Berechtigungsprüfungen.' },
-        { title: 'Patientenansprache', desc: 'Proaktive Gesundheitskampagnen.' },
-        { title: 'After-Hours-Support', desc: '24/7 Beruhigung für Ihre Patienten.' }
-      ],
-      customer: [
-        { title: 'Inbound-Support', desc: 'Professionelle Bearbeitung aller Anfragen.' },
-        { title: 'Omnichannel-Support', desc: 'E-Mail, Chat und SMS an einem Ort.' },
-        { title: 'Bestellannahme', desc: 'Sichere und effiziente Bestellabwicklung.' },
-        { title: 'Feedback-Sammlung', desc: 'Einblicke zur Verbesserung Ihres Geschäfts.' }
+        'Patiententermine planen und bestätigen.',
+        'Eingehende und ausgehende Anrufe über Ihr Kliniksystem verwalten.',
+        'Verpasste Besuche neu planen und offene Zeitfenster füllen.',
+        'Nachsorgetermine buchen und Versicherungen überprüfen.',
+        'Support und Beruhigung außerhalb der Geschäftszeiten bieten.',
+        'Outreach-Kampagnen durchführen, um Patienten zu gewinnen und einzubinden.',
+        'Feedback sammeln und Erkenntnisse teilen, um Pflege und Effizienz zu verbessern.'
       ]
     },
     why: {
@@ -443,7 +427,7 @@ export const translations = {
       missionDesc: 'Bedeutungsvolle Kundenerlebnisse durch kompetente Kommunikation und intelligente Lösungen liefern.',
       future: 'Zukunft',
       visionTitle: 'Unsere Vision',
-      visionDesc: 'Der vertrauenswürdige Kommunikationspartner für Exzellenz und Integrität zu werden.',
+      visionDesc: 'Der vertrauenswürdige Kommunikationspartner für Exzellenz, Integrität und Pflege zu werden, nicht nur Anrufe zu beantworten, sondern bedeutungsvolle menschliche Interaktionen mit warmer Verbindung zu schaffen.',
       cardTitle: 'Die Verbindung, die Erfolg treibt',
       cardDesc: 'Wir schaffen die Umgebung, in der sich Ihre Patienten gehört fühlen.'
     },

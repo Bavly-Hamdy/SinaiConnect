@@ -43,10 +43,10 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-slate-900 dark:text-white mb-6">{t.footer.services}</h4>
             <ul className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
-              <li><a href="#services" className="hover:text-sinai-teal dark:hover:text-sinai-tealLight transition-colors">{t.services.medical[0].title}</a></li>
-              <li><a href="#services" className="hover:text-sinai-teal dark:hover:text-sinai-tealLight transition-colors">{t.services.medical[1].title}</a></li>
-              <li><a href="#services" className="hover:text-sinai-teal dark:hover:text-sinai-tealLight transition-colors">{t.services.medical[2].title}</a></li>
-              <li><a href="#services" className="hover:text-sinai-teal dark:hover:text-sinai-tealLight transition-colors">{t.services.medical[3].title}</a></li>
+              <li><a href="#services" className="hover:text-sinai-teal dark:hover:text-sinai-tealLight transition-colors">{t.services.medical[0]}</a></li>
+              <li><a href="#services" className="hover:text-sinai-teal dark:hover:text-sinai-tealLight transition-colors">{t.services.medical[1]}</a></li>
+              <li><a href="#services" className="hover:text-sinai-teal dark:hover:text-sinai-tealLight transition-colors">{t.services.medical[2]}</a></li>
+              <li><a href="#services" className="hover:text-sinai-teal dark:hover:text-sinai-tealLight transition-colors">{t.services.medical[3]}</a></li>
             </ul>
           </div>
 
