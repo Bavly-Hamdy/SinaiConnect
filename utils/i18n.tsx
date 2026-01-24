@@ -14,7 +14,7 @@ export const translations = {
       login: 'Client Portal Login'
     },
     hero: {
-      tag: 'Medical & Clinic Support',
+      tag: 'Medical & Clinic Support Services',
       headlineStart: 'Your Bridge',
       headlineEnd: 'to Success',
       subhead: 'Behind every call is a team that listens, understands, and cares. We go beyond communication to build trust, comfort, and lasting relationships through respect, dedication, and excellence.',
