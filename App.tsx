@@ -6,13 +6,9 @@ import { Solutions } from './components/Solutions';
 import { Mission } from './components/Mission';
 import { Careers } from './components/Careers';
 import { Footer } from './components/Footer';
-import { LoginModal } from './components/LoginModal';
-import { ClientPortal } from './components/ClientPortal';
 import { LanguageProvider } from './utils/i18n';
 
 function AppContent() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showLoginModal, setShowLoginModal] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -25,14 +21,10 @@ function AppContent() {
 
   const toggleTheme = () => setIsDark(!isDark);
 
-  if (isLoggedIn) {
-    return <ClientPortal onLogout={() => setIsLoggedIn(false)} isDark={isDark} toggleTheme={toggleTheme} />;
-  }
-
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans selection:bg-sinai-teal/20 selection:text-sinai-teal transition-colors duration-300">
-      <Header onLoginClick={() => setShowLoginModal(true)} isDark={isDark} toggleTheme={toggleTheme} />
-      
+      <Header isDark={isDark} toggleTheme={toggleTheme} />
+
       <main>
         <Hero />
         <BentoGrid />
@@ -40,14 +32,8 @@ function AppContent() {
         <Mission />
         <Careers />
       </main>
-      
-      <Footer />
 
-      <LoginModal 
-        isOpen={showLoginModal} 
-        onClose={() => setShowLoginModal(false)}
-        onLogin={() => setIsLoggedIn(true)}
-      />
+      <Footer />
     </div>
   );
 }

@@ -9,21 +9,23 @@ export const Footer: React.FC = () => {
     <footer id="contact" className="bg-slate-50 dark:bg-slate-900 pt-24 pb-12 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          
+
           {/* Brand Column */}
           <div className="space-y-6">
-            <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-sinai-teal flex items-center justify-center text-white">
-                    <span className="font-display font-bold text-sm">S</span>
-                </div>
-                <span className="font-display font-bold text-xl text-slate-900 dark:text-white">Sinai Connect</span>
+            <div className="flex items-center gap-3">
+              <img
+                src="/assets/logo.png"
+                alt="Sinai Connect Logo"
+                className="w-8 h-8 object-contain"
+              />
+              <span className="font-display font-bold text-xl text-slate-900 dark:text-white">Sinai Connect</span>
             </div>
             <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
               {t.footer.tag}
             </p>
             <div className="flex items-center gap-2">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://sinaiconnect.com" alt="QR Code" className="w-20 h-20 rounded-lg" />
-                <span className="text-xs font-bold text-sinai-coral">{t.footer.scan}</span>
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://sinaiconnect.com" alt="QR Code" className="w-20 h-20 rounded-lg" />
+              <span className="text-xs font-bold text-sinai-coral">{t.footer.scan}</span>
             </div>
           </div>
 
@@ -37,8 +39,8 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-           {/* Services Column */}
-           <div>
+          {/* Services Column */}
+          <div>
             <h4 className="font-bold text-slate-900 dark:text-white mb-6">{t.footer.services}</h4>
             <ul className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
               <li><a href="#services" className="hover:text-sinai-teal dark:hover:text-sinai-tealLight transition-colors">{t.services.medical[0].title}</a></li>
@@ -73,7 +75,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-400 text-sm">{t.footer.rights}</p>
+          <p className="text-slate-400 text-sm">{t.footer.rights}</p>
         </div>
       </div>
     </footer>
@@ -81,5 +83,5 @@ export const Footer: React.FC = () => {
 };
 
 const GlobeIcon = ({ className }: { className?: string }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path></svg>
 );
