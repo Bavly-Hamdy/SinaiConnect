@@ -31,7 +31,7 @@ export const Solutions: React.FC = () => {
                     >
                         <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50 dark:border-slate-800 aspect-[4/5] group transition-colors duration-300">
                             <img
-                                src="https://images.unsplash.com/photo-1516574187841-693083f69802?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                src="/assets/Medical%20Support.png"
                                 alt="Medical Support Team"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />

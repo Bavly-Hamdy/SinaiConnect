@@ -40,8 +40,8 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-            ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 py-3 shadow-lg shadow-slate-200/5 dark:shadow-black/20'
-            : 'bg-transparent py-6'
+          ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 py-3 shadow-lg shadow-slate-200/5 dark:shadow-black/20'
+          : 'bg-transparent py-6'
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -53,7 +53,7 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
             />
             <div className="flex flex-col">
               <span className={`font-display font-bold text-lg leading-tight tracking-tight transition-colors duration-300 ${isScrolled ? 'text-slate-900 dark:text-white' : 'text-slate-900 dark:text-white'}`}>
-                Sinai Connect
+                {t.brandName}
               </span>
             </div>
           </a>
@@ -178,6 +178,19 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
                   </button>
                 ))}
               </div>
+
+              <hr className="border-slate-100 dark:border-slate-800 my-4" />
+
+              {/* Theme Toggle in Mobile Menu */}
+              <button
+                onClick={toggleTheme}
+                className="w-full flex items-center justify-between p-4 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+              >
+                <span className="text-sm font-bold text-slate-700 dark:text-slate-200">
+                  {isDark ? 'Light Mode' : 'Dark Mode'}
+                </span>
+                {isDark ? <Sun className="w-5 h-5 text-slate-600 dark:text-slate-300" /> : <Moon className="w-5 h-5 text-slate-600 dark:text-slate-300" />}
+              </button>
             </div>
           </motion.div>
         )}

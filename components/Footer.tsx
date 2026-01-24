@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
                 alt="Sinai Connect Logo"
                 className="w-8 h-8 object-contain"
               />
-              <span className="font-display font-bold text-xl text-slate-900 dark:text-white">Sinai Connect</span>
+              <span className="font-display font-bold text-xl text-slate-900 dark:text-white">{t.brandName}</span>
             </div>
             <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
               {t.footer.tag}

@@ -4,6 +4,7 @@ export type Language = 'en' | 'ar' | 'es' | 'de';
 
 export const translations = {
   en: {
+    brandName: 'Sinai Connect',
     nav: {
       solutions: 'Solutions',
       whyUs: 'Why Us',
@@ -126,6 +127,7 @@ export const translations = {
     }
   },
   ar: {
+    brandName: 'سايناي كونكت',
     nav: {
       solutions: 'الحلول',
       whyUs: 'لماذا نحن',
@@ -248,6 +250,7 @@ export const translations = {
     }
   },
   es: {
+    brandName: 'Sinai Connect',
     nav: {
       solutions: 'Soluciones',
       whyUs: 'Nosotros',
@@ -370,6 +373,7 @@ export const translations = {
     }
   },
   de: {
+    brandName: 'Sinai Connect',
     nav: {
       solutions: 'Lösungen',
       whyUs: 'Warum Wir',
