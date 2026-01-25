@@ -57,10 +57,22 @@ export const Hero: React.FC = () => {
             <span className="text-sinai-teal dark:text-sinai-tealLight font-bold uppercase tracking-widest text-xs">{t.hero.tag}</span>
           </motion.div>
 
+          {/* Welcome Message */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.05 }}
+            className="mb-4"
+          >
+            <h2 className="font-display font-semibold text-2xl md:text-3xl text-slate-700 dark:text-slate-300">
+              {t.hero.welcome}
+            </h2>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
             className="font-display font-bold text-6xl md:text-8xl leading-[0.95] text-slate-900 dark:text-white mb-8 tracking-tight"
           >
             {t.hero.headlineStart} <br />

@@ -24,6 +24,8 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
   });
 
   const navLinks = [
+    { name: t.nav.welcome, href: '#welcome' },
+    { name: t.nav.customized, href: '#customized' },
     { name: t.nav.whyUs, href: '#why-partner' },
     { name: t.nav.solutions, href: '#services' },
     { name: t.nav.mission, href: '#mission' },
