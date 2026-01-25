@@ -90,6 +90,14 @@ export const Hero: React.FC = () => {
               </div>
             </motion.div>
 
+            {/* Welcome Message */}
+            <motion.div variants={itemVariants} className="mb-4 flex items-center gap-3">
+              <div className="h-[2px] w-8 md:w-12 bg-gradient-to-r from-sinai-teal to-transparent rounded-full" />
+              <span className="font-sans text-lg md:text-xl font-bold uppercase tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-r from-sinai-teal to-sinai-coral dark:from-sinai-tealLight dark:to-sinai-coral">
+                {t.hero.welcome}
+              </span>
+            </motion.div>
+
             {/* Main Headline */}
             <motion.div variants={itemVariants} className="relative mb-6">
               <h1 className="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.05] md:leading-[1] text-slate-900 dark:text-white tracking-tight">
