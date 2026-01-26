@@ -16,6 +16,7 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   const { t, language, setLanguage } = useLanguage();
 
@@ -37,6 +38,31 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
     setLangMenuOpen(false);
   };
 
+  // Scroll Spy Logic
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['hero', 'welcome', 'customized', 'why-partner', 'services', 'mission', 'careers'];
+
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // Active if top is near top of screen OR it takes up majority of viewport
+          const isNearTop = rect.top <= 150 && rect.bottom >= 150;
+          return isNearTop;
+        }
+        return false;
+      });
+
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <motion.header
@@ -49,7 +75,14 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-3 group cursor-pointer">
+          <a
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="flex items-center gap-3 group cursor-pointer"
+          >
             <img
               src={logo}
               alt="Sinai Connect Logo"
@@ -64,24 +97,30 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onMouseEnter={() => setHoveredLink(link.name)}
-                onMouseLeave={() => setHoveredLink(null)}
-                className="relative text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-sinai-teal dark:hover:text-sinai-tealLight transition-colors py-2"
-              >
-                {link.name}
-                {hoveredLink === link.name && (
-                  <motion.div
-                    layoutId="nav-underline"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-sinai-teal rounded-full"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onMouseEnter={() => setHoveredLink(link.name)}
+                  onMouseLeave={() => setHoveredLink(null)}
+                  className={`relative text-sm font-medium transition-colors py-2 ${isActive
+                    ? 'text-sinai-teal dark:text-sinai-tealLight'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-sinai-teal dark:hover:text-sinai-tealLight'
+                    }`}
+                >
+                  {link.name}
+                  {(hoveredLink === link.name || isActive) && (
+                    <motion.div
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-sinai-teal rounded-full"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                </a>
+              );
+            })}
 
             <div className="h-6 w-px bg-slate-200 dark:bg-slate-700 mx-2" />
 

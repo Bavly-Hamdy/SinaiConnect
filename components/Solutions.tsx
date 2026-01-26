@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, Calendar, Clock, FileCheck, UserCheck, Phone, Users, TrendingUp, Headphones, Package, BarChart3, Globe, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../utils/i18n';
 import medicalSupport from '../assets/MedicalSupport.png';
+import customerSupport from '../assets/CustomerService.png';
 
 export const Solutions: React.FC = () => {
     const { t } = useLanguage();
@@ -122,26 +123,23 @@ export const Solutions: React.FC = () => {
                                         </div>
                                     </>
                                 ) : (
-                                    <div className="w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col items-center justify-center text-center p-12 relative overflow-hidden">
-                                        <div className="absolute top-0 right-0 w-64 h-64 bg-sinai-coral/10 blur-[100px] rounded-full" />
-                                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/10 blur-[100px] rounded-full" />
-
-                                        <Headphones className="w-24 h-24 text-sinai-coral mb-8 relative z-10" />
-                                        <h3 className="text-3xl font-display font-bold text-white mb-4 relative z-10">Customer First</h3>
-                                        <p className="text-slate-400 leading-relaxed mb-8 relative z-10">
-                                            We treat your customers like our own, ensuring every interaction builds loyalty and trust.
-                                        </p>
-                                        <div className="grid grid-cols-2 gap-4 w-full relative z-10 text-left">
-                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                                                <div className="text-2xl font-bold text-sinai-coral mb-1">24/7</div>
-                                                <div className="text-xs text-slate-400">Support</div>
+                                    <>
+                                        <img
+                                            src={customerSupport}
+                                            alt="Customer Service Team"
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60" />
+                                        <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <div className="p-2 bg-sinai-coral rounded-lg">
+                                                    <Headphones className="w-5 h-5 text-white" />
+                                                </div>
+                                                <span className="font-semibold text-sinai-coral">Customer Success</span>
                                             </div>
-                                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                                                <div className="text-2xl font-bold text-orange-400 mb-1">&lt;1m</div>
-                                                <div className="text-xs text-slate-400">Response</div>
-                                            </div>
+                                            <p className="opacity-90 leading-relaxed text-sm">We treat your customers like our own, ensuring every interaction builds loyalty and trust.</p>
                                         </div>
-                                    </div>
+                                    </>
                                 )}
                             </div>
                         </div>

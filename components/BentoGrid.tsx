@@ -118,7 +118,7 @@ export const BentoGrid: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('careers')?.scrollIntoView({ behavior: 'smooth' })}
                 className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:shadow-xl hover:shadow-white/10 transition-all shadow-lg flex items-center gap-3 group/btn"
               >
                 {t.why.ctaButton}

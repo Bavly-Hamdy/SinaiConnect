@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Activity, ShieldCheck, Users } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
 import { useLanguage } from '../utils/i18n';
-import medicalSupport from '../assets/MedicalSupport.png';
+import medicalSupport from '../assets/Hero.png';
 
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
 
   const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('careers')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToServices = () => {
@@ -41,7 +41,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center pt-24 pb-12 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
+    <section id="hero" className="relative min-h-[100dvh] flex items-center pt-24 pb-12 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
 
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -139,15 +139,7 @@ export const Hero: React.FC = () => {
               </button>
             </motion.div>
 
-            {/* Trust Indicator / Social Proof (Optional Addition) */}
-            <motion.div variants={itemVariants} className="mt-12 flex items-center gap-4 text-sm font-medium text-slate-500 dark:text-slate-400">
-              <div className="flex -space-x-3">
-                <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 border-2 border-white dark:border-slate-900 flex items-center justify-center text-[10px]">Img</div>
-                <div className="w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-slate-900 flex items-center justify-center text-[10px]">Img</div>
-                <div className="w-8 h-8 rounded-full bg-slate-400 dark:bg-slate-500 border-2 border-white dark:border-slate-900 flex items-center justify-center text-[10px]">Img</div>
-              </div>
-              <p>Trusted by <span className="text-slate-900 dark:text-white font-bold">Sinai's Best</span></p>
-            </motion.div>
+
           </motion.div>
         </div>
 

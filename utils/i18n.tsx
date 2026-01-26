@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type Language = 'en' | 'ar' | 'es' | 'de';
+export type Language = 'en' | 'ar' | 'es' | 'de' | 'fr';
 
 export const translations = {
   en: {
@@ -13,7 +13,10 @@ export const translations = {
       mission: 'Mission',
       careers: 'Careers',
       portal: 'Client Portal',
-      login: 'Client Portal Login'
+      login: 'Client Portal Login',
+      about: 'About Us',
+      blog: 'Insights & Blog',
+      faq: 'FAQ'
     },
     hero: {
       tag: 'Medical Support & Business Customer Service',
@@ -133,7 +136,8 @@ export const translations = {
         email: 'Email Address',
         address: 'Address',
         city: 'City',
-        state: 'State'
+        state: 'State',
+        message: 'Cover Letter / Message'
       },
       submit: 'Submit Application',
       submitting: 'Submitting...',
@@ -143,8 +147,8 @@ export const translations = {
     },
     footer: {
       tagline: 'The Connection That Drives Success',
-      scan: 'Scan to visit',
-      scanDesc: 'Visit our website',
+      scan: 'Scan to Chat',
+      scanDesc: 'Chat on WhatsApp',
       followUs: 'Follow Us',
       quickLinks: 'Quick Links',
       home: 'Home',
@@ -155,12 +159,15 @@ export const translations = {
       customerService: 'Customer Service',
       appointmentScheduling: 'Appointment Scheduling',
       support247: '24/7 Support',
+      claims: 'Claims Processing',
+      outbound: 'Outbound Campaigns',
+      multilingual: 'Multilingual Support',
       email: 'Email',
       website: 'Website',
       copyright: '© 2026 Sinai Connect. All rights reserved.',
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',
-      poweredBy: 'Powered by'
+      poweredBy: 'Designed & Developed by'
     },
     portal: {
       dashboard: 'Dashboard Overview',
@@ -197,7 +204,10 @@ export const translations = {
       mission: 'رسالتنا',
       careers: 'الوظائف',
       portal: 'بوابة العملاء',
-      login: 'دخول بوابة العملاء'
+      login: 'دخول بوابة العملاء',
+      about: 'معلومات عنا',
+      blog: 'المدونة والرؤى',
+      faq: 'الأسئلة الشائعة'
     },
     hero: {
       tag: 'دعم طبي وخدمة عملاء',
@@ -317,7 +327,8 @@ export const translations = {
         email: 'البريد الإلكتروني',
         address: 'العنوان',
         city: 'المدينة',
-        state: 'المنطقة/المحافظة'
+        state: 'المنطقة/المحافظة',
+        message: 'رسالة / خطاب تغطية'
       },
       submit: 'إرسال الطلب',
       submitting: 'جاري الإرسال...',
@@ -327,8 +338,8 @@ export const translations = {
     },
     footer: {
       tagline: 'الاتصال الذي يدفع للنجاح',
-      scan: 'امسح للزيارة',
-      scanDesc: 'زيارة موقعنا',
+      scan: 'امسح للمحادثة',
+      scanDesc: 'تواصل عبر واتساب',
       followUs: 'تابعنا',
       quickLinks: 'روابط سريعة',
       home: 'الرئيسية',
@@ -339,12 +350,15 @@ export const translations = {
       customerService: 'خدمة العملاء',
       appointmentScheduling: 'جدولة المواعيد',
       support247: 'دعم 24/7',
+      claims: 'معالجة المطالبات',
+      outbound: 'حملات الاتصال الصادر',
+      multilingual: 'دعم متعدد اللغات',
       email: 'البريد الإلكتروني',
       website: 'الموقع الإلكتروني',
       copyright: '© 2026 سيناي كونكت. جميع الحقوق محفوظة.',
       privacy: 'سياسة الخصوصية',
       terms: 'شروط الخدمة',
-      poweredBy: 'مدعوم بواسطة'
+      poweredBy: 'تصميم وتطوير'
     },
     portal: {
       dashboard: 'نظرة عامة على اللوحة',
@@ -381,7 +395,10 @@ export const translations = {
       mission: 'Misión',
       careers: 'Carreras',
       portal: 'Portal Cliente',
-      login: 'Acceso Portal'
+      login: 'Acceso Portal',
+      about: 'Sobre Nosotros',
+      blog: 'Blog e Ideas',
+      faq: 'Preguntas Frecuentes'
     },
     hero: {
       tag: 'Soporte Médico y Servicio al Cliente',
@@ -501,7 +518,8 @@ export const translations = {
         email: 'Correo Electrónico',
         address: 'Dirección',
         city: 'Ciudad',
-        state: 'Estado'
+        state: 'Estado',
+        message: 'Carta de Presentación / Mensaje'
       },
       submit: 'Enviar Solicitud',
       submitting: 'Enviando...',
@@ -511,8 +529,8 @@ export const translations = {
     },
     footer: {
       tagline: 'La Conexión Que Impulsa El Éxito',
-      scan: 'Escanear para visitar',
-      scanDesc: 'Visita nuestro sitio',
+      scan: 'Escanear para chatear',
+      scanDesc: 'Chatear en WhatsApp',
       followUs: 'Síguenos',
       quickLinks: 'Enlaces Rápidos',
       home: 'Inicio',
@@ -523,12 +541,15 @@ export const translations = {
       customerService: 'Servicio al Cliente',
       appointmentScheduling: 'Programación de Citas',
       support247: 'Soporte 24/7',
+      claims: 'Procesamiento de Reclamaciones',
+      outbound: 'Campañas Salientes',
+      multilingual: 'Soporte Multilingüe',
       email: 'Correo',
       website: 'Sitio Web',
       copyright: '© 2026 Sinai Connect. Todos los derechos reservados.',
       privacy: 'Política de Privacidad',
       terms: 'Términos de Servicio',
-      poweredBy: 'Desarrollado por'
+      poweredBy: 'Diseñado y Desarrollado por'
     },
     portal: {
       dashboard: 'Resumen del Panel',
@@ -565,7 +586,10 @@ export const translations = {
       mission: 'Mission',
       careers: 'Karriere',
       portal: 'Kundenportal',
-      login: 'Portal Login'
+      login: 'Portal Login',
+      about: 'Über Uns',
+      blog: 'Blog & Einblicke',
+      faq: 'Häufige Fragen'
     },
     hero: {
       tag: 'Medizinische Unterstützung & Kundenservice',
@@ -685,7 +709,8 @@ export const translations = {
         email: 'E-Mail-Adresse',
         address: 'Adresse',
         city: 'Stadt',
-        state: 'Bundesland'
+        state: 'Bundesland',
+        message: 'Anschreiben / Nachricht'
       },
       submit: 'Bewerbung Absenden',
       submitting: 'Wird gesendet...',
@@ -695,8 +720,8 @@ export const translations = {
     },
     footer: {
       tagline: 'Die Verbindung Die Zum Erfolg Führt',
-      scan: 'Scannen zum Besuchen',
-      scanDesc: 'Besuchen Sie unsere Website',
+      scan: 'Scannen zum Chatten',
+      scanDesc: 'Chat auf WhatsApp',
       followUs: 'Folgen Sie Uns',
       quickLinks: 'Schnelllinks',
       home: 'Startseite',
@@ -707,12 +732,15 @@ export const translations = {
       customerService: 'Kundenservice',
       appointmentScheduling: 'Terminplanung',
       support247: '24/7 Support',
+      claims: 'Schadensbearbeitung',
+      outbound: 'Outbound-Kampagnen',
+      multilingual: 'Mehrsprachiger Support',
       email: 'E-Mail',
       website: 'Webseite',
       copyright: '© 2026 Sinai Connect. Alle Rechte vorbehalten.',
       privacy: 'Datenschutz',
       terms: 'Nutzungsbedingungen',
-      poweredBy: 'Unterstützt von'
+      poweredBy: 'Entworfen & Entwickelt von'
     },
     portal: {
       dashboard: 'Dashboard-Übersicht',
@@ -737,6 +765,197 @@ export const translations = {
       button: 'Dashboard Aufrufen',
       forgot: 'Passwort vergessen?',
       secure: 'Geschützt durch 256-Bit-SSL-Verschlüsselung'
+    }
+  },
+  fr: {
+    brandName: 'Sinai Connect',
+    nav: {
+      welcome: 'Accueil',
+      customized: 'Solutions',
+      solutions: 'Services',
+      whyUs: 'Pourquoi Nous',
+      mission: 'Mission',
+      careers: 'Carrières',
+      portal: 'Portail Client',
+      login: 'Connexion Portail',
+      about: 'À Propos',
+      blog: 'Blog & Infos',
+      faq: 'FAQ'
+    },
+    hero: {
+      tag: 'Support Médical & Service Client',
+      welcome: 'Bienvenue à Sinai Connect',
+      headlineStart: 'Votre Pont',
+      headlineEnd: 'Vers Le Succès',
+      subhead: 'Derrière chaque appel se trouve une équipe qui écoute, comprend et se soucie. Nous allons au-delà de la communication pour bâtir la confiance.',
+      cta: 'Connectons-nous',
+      services: 'Voir Services',
+      statLabel: 'Satisfaction Client',
+      statSub: 'Qualité de service constante'
+    },
+    welcome: {
+      tag: 'Bienvenue à Sinai Connect',
+      title: 'Bienvenue à Sinai Connect',
+      paragraph1: "Chez Sinai Connect, nous croyons que chaque organisation mérite un partenaire qui écoute vraiment. Nous offrons plus que des services de centre d'appels. Nous offrons une véritable connexion humaine.",
+      paragraph2: 'Nous aidons la communication à se dérouler sans heurts afin que vos équipes restent concentrées. Nous prenons soin des conversations qui comptent.',
+      cards: {
+        philosophy: 'Notre Philosophie',
+        commitment: 'Notre Engagement'
+      },
+      values: [
+        'Soin & Compassion',
+        'Connexion Humaine',
+        'Précision & Focus',
+        'Excellence',
+        'Orienté Croissance',
+        'Confiance & Sécurité'
+      ],
+      stats: {
+        availability: 'Disponibilité',
+        languages: 'Langues Supportées',
+        satisfaction: 'Satisfaction Client'
+      }
+    },
+    customized: {
+      tag: 'Solutions Personnalisées',
+      title: 'Solutions personnalisées pour chaque organisation',
+      paragraph1: "Chaque organisation fonctionne différemment. Une petite clinique, une pratique en croissance ou un grand réseau hospitalier ont des besoins uniques. Sinai Connect prend le temps de comprendre comment vous fonctionnez.",
+      paragraph2: "Nos solutions sont adaptées à votre flux de travail. De la planification des rendez-vous au suivi et à la gestion des demandes, notre équipe s'intègre parfaitement à vos opérations quotidiennes.",
+      features: [
+        'Flux de travail adapté',
+        'Croissance évolutive',
+        'Efficacité temporelle',
+        'Intégration transparente'
+      ]
+    },
+    services: {
+      tag: 'Soins Complets',
+      title: 'Services de Support',
+      tabs: {
+        medical: 'Support Médical',
+        customer: 'Service Client'
+      },
+      medical: [
+        'Planifier et confirmer les rendez-vous des patients.',
+        'Gérer les appels entrants et sortants via votre système clinique.',
+        'Reprogrammer les visites manquées.',
+        'Réserver des suivis et vérifier les assurances.',
+        'Fournir un soutien après les heures de bureau.',
+        'Mener des campagnes de sensibilisation.',
+        'Recueillir des commentaires pour améliorer les soins.'
+      ],
+      customer: [
+        'Traiter les demandes des clients et résoudre les problèmes.',
+        'Fournir un support produit et une assistance au dépannage.',
+        'Traiter les commandes, les retours et la gestion des comptes.',
+        'Offrir un support multilingue en anglais, espagnol et arabe.',
+        'Disponibilité 24/7 avec couverture étendue.',
+        'Effectuer des suivis pour assurer la satisfaction.',
+        'Générer des rapports détaillés.'
+      ]
+    },
+    why: {
+      tag: 'La Différence Sinai',
+      title: 'Pourquoi Partenaire avec',
+      subtitle: "Nous sommes plus qu'un centre d'appels. Nous sommes une extension de votre pratique.",
+      ctaTitle: 'Prêt à élever votre expérience ?',
+      ctaDesc: 'Rejoignez les organisations qui nous font confiance.',
+      ctaButton: 'Commencer',
+      cards: [
+        "Expérience prouvée avec des organisations professionnelles.",
+        "Communication multilingue.",
+        "Scénarios d'appels personnalisés.",
+        "Rapports fiables avec suivi constant.",
+        "Partenaire de confiance assurant des opérations fluides.",
+        "Support personnalisé travaillant comme partie de votre équipe.",
+        "Choisi par des organisations qui valorisent le soin."
+      ]
+    },
+    mission: {
+      purpose: 'But',
+      missionTitle: 'Notre Mission',
+      missionDesc: 'Offrir des expériences client significatives grâce à une communication experte et une technologie intelligente.',
+      future: 'Futur',
+      visionTitle: 'Notre Vision',
+      visionDesc: 'Devenir le partenaire de confiance connu pour son excellence et son intégrité, créant des interactions humaines significatives.',
+      cardTitle: 'La Connexion Qui Mène au Succès',
+      cardDesc: 'Nous créons un environnement où vos patients se sentent écoutés.'
+    },
+    careers: {
+      tag: 'Rejoignez Notre Équipe',
+      title: 'Construisez Votre Avenir chez',
+      desc: 'Nous recherchons toujours des personnes talentueuses et empathiques.',
+      hiring: 'Nous embauchons : Spécialiste du Support Client',
+      growth: 'Croissance Professionnelle',
+      growthDesc: 'Parcours de carrière structurés et formation continue.',
+      culture: 'Grande Culture',
+      cultureDesc: "Un lieu de travail qui valorise le respect et l'innovation.",
+      formTitle: 'Formulaire de Candidature',
+      secure: 'SÉCURISÉ SSL',
+      labels: {
+        date: 'Date de Candidature',
+        name: 'Nom Complet',
+        dob: 'Date de Naissance',
+        phone: 'Numéro de Téléphone',
+        email: 'Adresse Email',
+        address: 'Adresse',
+        city: 'Ville',
+        state: 'État',
+        message: 'Lettre de Motivation / Message'
+      },
+      submit: 'Envoyer la Candidature',
+      submitting: 'Envoi en cours...',
+      success: 'Candidature Reçue !',
+      successDesc: "Merci de votre intérêt. Notre équipe RH examinera votre candidature bientôt.",
+      reset: 'Envoyer une autre candidature'
+    },
+    footer: {
+      tagline: 'La Connexion Qui Mène au Succès',
+      scan: 'Scanner pour discuter',
+      scanDesc: 'Discuter sur WhatsApp',
+      followUs: 'Suivez-nous',
+      quickLinks: 'Liens Rapides',
+      home: 'Accueil',
+      company: 'Société',
+      services: 'Nos Services',
+      contact: 'Contactez-nous',
+      medicalSupport: 'Support Médical',
+      customerService: 'Service Client',
+      appointmentScheduling: 'Prise de Rendez-vous',
+      support247: 'Support 24/7',
+      claims: 'Traitement des Réclamations',
+      outbound: 'Campagnes Sortantes',
+      multilingual: 'Support Multilingue',
+      email: 'Email',
+      website: 'Site Web',
+      copyright: '© 2026 Sinai Connect. Tous droits réservés.',
+      privacy: 'Politique de Confidentialité',
+      terms: "Conditions d'Utilisation",
+      poweredBy: 'Conçu et Développé par'
+    },
+    portal: {
+      dashboard: 'Aperçu du Tableau de Bord',
+      welcome: "Bon retour ! Voici ce qui se passe aujourd'hui.",
+      updated: "Dernière mise à jour : À l'instant",
+      stats: {
+        calls: "Total d'Appels",
+        answer: 'Taux de Réponse',
+        handle: 'Temps Moyen de Traitement',
+        appt: 'Rendez-vous Fixés'
+      },
+      chart: 'Volume d\'Appels & Métriques',
+      reports: 'Rapports Récents',
+      viewAll: 'Voir Tout',
+      request: 'Demander un Rapport Personnalisé'
+    },
+    login: {
+      title: 'Portail Client',
+      subtitle: 'Accès sécurisé à vos métriques de performance.',
+      email: 'Adresse Email',
+      password: 'Mot de passe',
+      button: 'Accéder au Tableau de Bord',
+      forgot: 'Mot de passe oublié ?',
+      secure: 'Protégé par cryptage SSL 256 bits'
     }
   }
 };
@@ -783,12 +1002,14 @@ export const flags = {
   en: 'https://flagcdn.com/w40/us.png',
   ar: 'https://flagcdn.com/w40/eg.png',
   es: 'https://flagcdn.com/w40/es.png',
-  de: 'https://flagcdn.com/w40/de.png'
+  de: 'https://flagcdn.com/w40/de.png',
+  fr: 'https://flagcdn.com/w40/fr.png'
 };
 
 export const languageNames = {
   en: 'English',
   ar: 'العربية',
   es: 'Español',
-  de: 'Deutsch'
+  de: 'Deutsch',
+  fr: 'Français'
 };

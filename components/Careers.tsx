@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { User, Calendar, MapPin, Phone, Mail, Building, Send, Loader2, CheckCircle, Briefcase, ArrowRight, TrendingUp } from 'lucide-react';
+import { User, Calendar, MapPin, Phone, Mail, Building, Send, Loader2, CheckCircle, Briefcase, ArrowRight, TrendingUp, MessageSquare } from 'lucide-react';
 import { useLanguage } from '../utils/i18n';
 
 export const Careers: React.FC = () => {
@@ -13,12 +13,14 @@ export const Careers: React.FC = () => {
     city: '',
     state: '',
     phone: '',
-    email: ''
+    email: '',
+    message: ''
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -37,7 +39,7 @@ export const Careers: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     if (errors[name]) {
@@ -49,17 +51,71 @@ export const Careers: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    // Simulate API call
-    setTimeout(() => {
+    // Backend API URL
+    const API_URL = "http://localhost:3000/api/job-application";
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          applicationDate: formData.applicationDate,
+          fullName: formData.fullName,
+          birthday: formData.birthday,
+          address: formData.address,
+          city: formData.city,
+          state: formData.state,
+          phone: formData.phone,
+          email: formData.email,
+          message: formData.message
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitting(false);
+        setIsSuccess(true);
+
+        // Store applicant ID to show in success message
+        localStorage.setItem('lastApplicantId', result.applicantId);
+
+        // Reset form
+        setFormData({
+          applicationDate: new Date().toISOString().split('T')[0],
+          fullName: '',
+          birthday: '',
+          address: '',
+          city: '',
+          state: '',
+          phone: '',
+          email: '',
+          message: ''
+        });
+      } else {
+        throw new Error(result.error || result.warning || 'Unknown error');
+      }
+
+    } catch (error) {
+      console.error("Submission Error:", error);
       setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 2000);
+
+      // Provide more specific error messages
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        setSubmitError("Cannot connect to server. Please ensure the backend server is running (npm start in server folder).");
+      } else {
+        setSubmitError(error instanceof Error ? error.message : "Failed to submit application. Please try again.");
+      }
+    }
   };
 
   return (
@@ -172,12 +228,19 @@ export const Careers: React.FC = () => {
                     </div>
 
                     <h3 className="text-3xl font-display font-bold text-slate-900 dark:text-white mb-4">{t.careers.success}</h3>
-                    <p className="text-slate-600 dark:text-slate-300 mb-10 max-w-md mx-auto text-lg leading-relaxed">{t.careers.successDesc}</p>
+                    <p className="text-slate-600 dark:text-slate-300 mb-4 max-w-md mx-auto text-lg leading-relaxed">{t.careers.successDesc}</p>
+                    {localStorage.getItem('lastApplicantId') && (
+                      <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-sinai-teal/10 border border-sinai-teal/20 mb-6">
+                        <span className="text-sm font-mono font-bold text-sinai-teal dark:text-sinai-tealLight">
+                          📋 Your ID: {localStorage.getItem('lastApplicantId')}
+                        </span>
+                      </div>
+                    )}
 
                     <button
                       onClick={() => {
                         setIsSuccess(false);
-                        setFormData({ ...formData, fullName: '', email: '', phone: '' });
+                        setFormData(prev => ({ ...prev, message: '' })); // Reset message specifically
                       }}
                       className="group flex items-center gap-2 text-sinai-teal dark:text-sinai-tealLight font-bold hover:text-sinai-tealLight transition-colors"
                     >
@@ -203,6 +266,12 @@ export const Careers: React.FC = () => {
                         <span className="text-xs font-mono text-slate-500 dark:text-slate-400 font-semibold">{t.careers.secure}</span>
                       </div>
                     </div>
+
+                    {submitError && (
+                      <div className="p-4 rounded-xl bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm border border-red-100 dark:border-red-800">
+                        {submitError}
+                      </div>
+                    )}
 
                     {/* Date Field (Readonlyish) */}
                     <div className="grid grid-cols-1">
@@ -338,6 +407,24 @@ export const Careers: React.FC = () => {
                           placeholder="NY"
                         />
                         {errors.state && <p className="mt-1 text-xs text-red-500 font-medium ms-1">{errors.state}</p>}
+                      </div>
+                    </div>
+
+                    {/* NEW Message Field */}
+                    <div>
+                      <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2 block ms-1">{t.careers.labels.message || "Cover Letter / Message"}</label>
+                      <div className="relative group">
+                        <div className="absolute top-4 left-0 rtl:left-auto rtl:right-0 pl-4 rtl:pr-4 rtl:pl-0 flex items-start pointer-events-none">
+                          <MessageSquare className="h-5 w-5 text-slate-400 group-focus-within:text-sinai-teal transition-colors" />
+                        </div>
+                        <textarea
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          rows={4}
+                          className={`block w-full pl-12 rtl:pl-4 rtl:pr-12 pr-4 py-4 border rounded-2xl text-slate-900 dark:text-white dark:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-sinai-teal/20 transition-all bg-slate-50/50 hover:bg-white dark:hover:bg-slate-800 border-slate-200 dark:border-slate-700 focus:border-sinai-teal`}
+                          placeholder="Tell us why you're a great fit..."
+                        />
                       </div>
                     </div>
 
