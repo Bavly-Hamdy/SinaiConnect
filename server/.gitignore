@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Environment variables (contains sensitive credentials)
+.env
+
+# Google Cloud credentials
+credentials.json
+
+# Excel data files (contains personal information)
+*.xlsx
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
