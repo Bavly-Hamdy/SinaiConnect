@@ -1,119 +1,142 @@
 # Bavly-Hamdy/SinaiConnect
 
-> An enterprise-grade healthcare communication and client engagement ecosystem engineered for high-availability medical networks, featuring real-time client portals, modular React components, and secure backend job application pipelines.
+> *Enterprise-grade unified client connectivity and secure operational platform engineered for high-availability digital services.*
 
-![Preview](assets/CustomerService.png)
-
-[![TypeScript](https://img.shields.io/badge/TypeScript-~5.8.2-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-%7E5.8.2-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19.2.3-61DAFB?style=flat-square&logo=react)](https://react.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-Express-green?style=flat-square&logo=nodedotjs)](https://nodejs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.18-38BDF8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
-[![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat-square&logo=nodedotjs)](https://nodejs.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.2.0-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+
+![Customer Service Preview](assets/CustomerService.png)
 
 ---
 
 ## 📋 Table of Contents
-
-1. [🏷️ Hero Header](#-hero-header)
-2. [📋 Table of Contents](#-table-of-contents)
-3. [🔍 Overview & Architectural Intent](#-overview--architectural-intent)
-4. [📌 Architecture & Workflow](#-architecture--workflow)
-5. [✨ Core Features & Capabilities](#-core-features--capabilities)
-6. [🛠️ Technologies & Ecosystem Matrix](#️-technologies--ecosystem-matrix)
-7. [📋 Requirements & 🚀 Installation Guide](#-requirements---installation-guide)
-8. [📁 Project Structure](#-project-structure)
-9. [🧩 Main Modules & Technical Breakdown](#-main-modules--technical-breakdown)
-10. [🖥️ Script Execution & Operational Matrix](#️-script-execution--operational-matrix)
-11. [🛡️ Security & Configuration Isolation](#️-security--configuration-isolation)
-12. [🚀 Deployment & Environment Matrix](#-deployment--environment-matrix)
-13. [👥 Authors & Contributors](#-authors--contributors)
-14. [📄 License](#-license)
+1. [Overview & Architectural Intent](#-overview--architectural-intent)
+2. [Architecture & Workflow](#-architecture--workflow)
+3. [Core Features & Capabilities](#-core-features--capabilities)
+4. [Technologies & Ecosystem Matrix](#-technologies--ecosystem-matrix)
+5. [Getting Started](#-getting-started)
+6. [Requirements & Installation Guide](#-requirements--installation-guide)
+7. [Project Structure](#-project-structure)
+8. [Main Modules & Technical Breakdown](#-main-modules--technical-breakdown)
+9. [API & Script Execution Matrix](#-api--script-execution-matrix)
+10. [Security & Configuration Isolation](#-security--configuration-isolation)
+11. [Deployment & Environment Matrix](#-deployment--environment-matrix)
+12. [Contributing](#-contributing)
+13. [Authors & Contributors](#-authors--contributors)
+14. [License](#-license)
 
 ---
 
 ## 🔍 Overview & Architectural Intent
 
-**SinaiConnect** is engineered to bridge the digital divide between complex healthcare networks and patients. Modern healthcare facilities require robust, accessible, and secure digital touchpoints that can handle client scheduling, service inquiries, and internal talent acquisition without exposing sensitive transport layers to risk.
+**SinaiConnect** is a robust, modular Enterprise SaaS application designed to streamline client connectivity, medical and professional support pipelines, and interactive digital customer journeys. Engineered to address the complexities of modern multi-tenant environments, the platform pairs a high-performance React 19 single-page application frontend with an Express-powered backend notification and job submission engine.
 
-This repository implements a modular, decoupled architecture consisting of a high-performance React 19 single-page application (SPA) styled with Tailwind CSS, backed by a specialized Express micro-service handling secure job application parsing and email dispatching via Nodemailer. By separating the client presentation tier from asynchronous notification handlers, SinaiConnect maintains sub-second page load benchmarks while guaranteeing reliable message delivery for administrative teams.
+The architecture prioritizes decoupled service boundaries, strict type safety via TypeScript, and responsive component design utilizing Tailwind CSS v4 and Framer Motion. By separating the client rendering layer from the secure backend delivery handler (`server/index.js`), the application ensures secure environment variable encapsulation, transactional email processing via Nodemailer, and reliable job application dispatching without exposing sensitive SMTP credentials to the browser runtime.
 
 ---
 
 ## 📌 Architecture & Workflow
 
-The system separates client requests from backend orchestration. The frontend application runs entirely in the browser, communicating with the Express email microservice only when submitting employment credentials or administrative application packages.
-
-```
-[ Client Browser (React 19 / Vite) ] 
-       │
-       ├─► Static Asset Delivery (Vite Build / GitHub Pages)
-       │
-       └─► HTTP POST /api/applications ──► [ Express Middleware & CORS ]
-                                                  │
-                                                  ▼
-                                       [ Nodemailer / SMTP Gateway ]
-                                                  │
-                                                  ▼
-                                       [ Administrative Inbox ]
+### Progression Flow Diagram
+```text
+[Client Browser] 
+      │
+      ▼ (HTTPS / REST API)
+[Express Backend Server (`server/index.js`)]
+      │
+      ├──> Generates Secure Applicant ID
+      └──> Dispatches Transactional Notification via Nodemailer
+                 │
+                 ▼
+      [Configured SMTP Provider / Mailbox]
 ```
 
-### Architectural Flowchart
-
+### System Architecture Flowchart
 ```mermaid
 graph TD
-    A[Client User / Applicant] -->|Interacts via UI| B(React SPA Components)
-    B -->|Navigation & State| C{Action Selector}
-    C -->|Browse Services| D[MedicalServices.tsx / BentoGrid.tsx]
-    C -->|Client Portal Login| E[ClientPortal.tsx]
-    C -->|Submit Career App| F[Careers.tsx]
-    F -->|POST /api/applications| G[Express Server: server/index.js]
-    G -->|Validate & Generate ID| H[Nodemailer Dispatcher]
-    H -->|SMTP Secure Relay| I[Admin Notification Email]
+    A[Client User Interface] -->|Interacts with SPA Components| B[React 19 & Vite Frontend]
+    B -->|Submits Job Applications / Inquiries| C[Express.js API Server]
+    C -->|Validates Payload & State| D[Nodemailer Dispatch Engine]
+    D -->|Sends Structured Notification Email| E[Enterprise Mailbox]
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style C fill:#bbf,stroke:#333,stroke-width:2px
+    style E fill:#bfb,stroke:#333,stroke-width:2px
 ```
 
 ### Architectural Decision Records (ADRs) & Trade-offs
-
-| Decision ID | Choice | Alternative Considered | Rationale & Trade-off |
+| Decision ID | Choice | Alternative Considered | Rationale & Trade-offs |
 | :--- | :--- | :--- | :--- |
-| **ADR-01** | React 19 + Vite | Next.js / Remix | Selected for lightning-fast client-side static rendering and zero server-side state overhead, matching GitHub Pages deployment requirements. |
-| **ADR-02** | Express + Nodemailer | Serverless Functions | Provides direct control over SMTP connections and local application state processing without third-party vendor lock-in. |
-| **ADR-03** | Tailwind CSS v4 | CSS Modules / Styled Components | Accelerates design system consistency across responsive medical portals while minimizing CSS bundle sizes. |
+| **ADR-01** | React 19 + Vite | Next.js / Remix SSR | Eliminates server-side rendering complexity while retaining rapid client-side hydration and immediate static export capability via `gh-pages`. |
+| **ADR-02** | Express Backend (`server/`) | Serverless Functions | Provides a persistent, standalone node process capable of managing localized job queues and secure SMTP handshakes without cold starts. |
+| **ADR-03** | Tailwind CSS v4 | CSS Modules / Styled Components | Ensures atomic, maintainable styling with minimal bundle overhead and streamlined design token configuration. |
 
 ---
 
 ## ✨ Core Features & Capabilities
 
-* **Modular Component Architecture**: Decoupled UI blocks (`BentoGrid`, `ClientPortal`, `MedicalServices`, `Solutions`) optimized for lazy loading and reusability.
-* **Secure Talent Acquisition Pipeline**: Dedicated server module (`server/index.js`) featuring applicant ID generation, CORS restrictions, and structured email notification templating.
-* **Internationalization Support**: Integrated localization utilities (`utils/i18n.tsx`, `translations-helper.js`) ensuring multi-language healthcare outreach.
-* **Responsive Enterprise Design**: Fluid layouts powered by Framer Motion micro-animations and Tailwind utility classes.
-* **Automated CI/CD Workflows**: Pre-configured GitHub Actions for automated building, linting, and GitHub Pages staging deployment.
+* **Dynamic Component Architecture**: Composed of specialized views including `Hero.tsx`, `BentoGrid.tsx`, `MedicalServices.tsx`, and `ClientPortal.tsx`.
+* **Asynchronous Job Submission Service**: Express backend parsing incoming candidate portfolios and inquiries, generating sequential application IDs, and dispatching formatted email templates.
+* **Internationalization Support**: Modular translation helpers (`utils/i18n.tsx`, `translations-helper.js`) ensuring seamless multi-language enterprise readiness.
+* **Fluid Motion & Accessibility**: Integrated `framer-motion` animations and responsive mobile layouts via custom navigation components.
+* **Automated CI/CD Pipeline**: Pre-configured GitHub Actions workflow (`.github/workflows/deploy.yml`) automating build validation and production publishing.
 
 ---
 
 ## 🛠️ Technologies & Ecosystem Matrix
 
-| Category | Technology | Version | Purpose |
+| Dependency Category | Package Name | Version | Purpose |
 | :--- | :--- | :--- | :--- |
-| **Frontend Framework** | React | ^19.2.3 | Core UI library for component state management |
-| **DOM Renderer** | react-dom | ^19.2.3 | React reconciliation engine for browser DOM |
-| **Build Tooling** | Vite | ^6.2.0 | Next-generation frontend build tooling and HMR server |
-| **Styling Engine** | Tailwind CSS | ^4.1.18 | Utility-first CSS framework for responsive design |
-| **Animation Engine** | framer-motion | ^12.29.0 | Fluid component transitions and gesture animations |
-| **Iconography** | lucide-react | ^0.563.0 | Modern scalable SVG icon library |
-| **Backend Runtime** | Node.js (Express) | ^4.x / Latest | Lightweight API server for handling job applications |
-| **Email Transport** | Nodemailer | Latest | SMTP email dispatch engine for administrative alerts |
-| **Deployment Utility**| gh-pages | ^6.3.0 | Automated static asset distribution to GitHub Pages |
+| **Core UI** | `react` / `react-dom` | `^19.2.3` | Modern component rendering and DOM reconciliation. |
+| **Motion & Icons** | `framer-motion` / `lucide-react` | `^12.29.0` / `^0.563.0` | Declarative animations and scalable vector iconography. |
+| **Build System** | `vite` / `@vitejs/plugin-react` | `^6.2.0` / `^5.0.0` | Ultra-fast module bundling and hot module replacement. |
+| **Styling** | `tailwindcss` / `postcss` / `autoprefixer` | `^4.1.18` | Utility-first CSS framework and CSS processing pipeline. |
+| **Backend Engine** | `express` / `cors` / `dotenv` | Latest | REST API endpoint routing and middleware security. |
+| **Mail Dispatch** | `nodemailer` | Latest | SMTP email delivery for contact and career submissions. |
+
+---
+
+## 🚀 Getting Started
+
+To get a local instance of SinaiConnect running for development or testing, ensure you have the required prerequisites installed and execute the quickstart commands below.
+
+### Prerequisites
+* **Node.js**: `v18.x` or `v20.x` LTS recommended.
+* **npm**: `v9.x` or higher.
+
+### Quick Setup Commands
+```bash
+# 1. Clone the repository
+git clone https://github.com/Bavly-Hamdy/SinaiConnect.git
+cd SinaiConnect
+
+# 2. Install frontend dependencies
+npm install
+
+# 3. Install backend server dependencies
+cd server
+npm install
+cd ..
+
+# 4. Configure environment variables for the backend
+cp server/.env.example server/.env
+
+# 5. Start the frontend development server (in root directory)
+npm run dev
+```
 
 ---
 
 ## 📋 Requirements & 🚀 Installation Guide
 
 ### Prerequisites
-* **Node.js**: `v18.x` or `v20.x` LTS recommended
-* **npm**: `v9.x` or higher
+* **Node.js**: `v18.x` or `v20.x` LTS recommended.
+* **npm**: `v9.x` or higher.
 
-### Environment Setup
+### Step-by-Step Installation
 
 1. **Clone the Repository**:
    ```bash
@@ -126,22 +149,19 @@ graph TD
    npm install
    ```
 
-3. **Configure Backend Server Environment**:
-   Navigate to the server directory and create your environment configuration:
+3. **Install Backend Server Dependencies**:
    ```bash
    cd server
    npm install
-   cp .env.example .env
+   cd ..
    ```
-   Edit `server/.env` with your secure SMTP provider credentials:
-   ```env
-   PORT=5000
-   SMTP_HOST=smtp.example.com
-   SMTP_PORT=587
-   SMTP_USER=your-email@example.com
-   SMTP_PASS=your-secure-app-password
-   ADMIN_EMAIL=admin@sinai-connect.internal
+
+4. **Configure Environment Variables**:
+   Copy the example environment template inside the server directory and configure your SMTP credentials:
+   ```bash
+   cp server/.env.example server/.env
    ```
+   *Edit `server/.env` with your production mail server credentials.*
 
 ---
 
@@ -151,137 +171,156 @@ graph TD
 SinaiConnect/
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml            # GitHub Actions CI/CD pipeline for GitHub Pages
-├── assets/                       # Visual design assets & documentation previews
+│       └── deploy.yml              # Automated GitHub Pages deployment pipeline
+├── assets/                         # Repository graphic assets and mockups
 │   ├── CustomerService.png
 │   ├── Hero.png
 │   ├── MedicalSupport.png
 │   └── logo.png
-├── components/                   # React presentation and logic components
-│   ├── BentoGrid.tsx             # Modular feature display grid
-│   ├── Careers.tsx               # Job application submission interface
-│   ├── ClientPortal.tsx          # Authenticated client management portal
-│   ├── Customized.tsx            # Tailored healthcare solutions view
-│   ├── Footer.tsx                # Enterprise footer with navigation links
-│   ├── Header.tsx                # Sticky navigation header with mobile menu
-│   ├── Hero.tsx                  # Primary landing section with call-to-action
-│   ├── LoadingScreen.tsx         # Asynchronous asset loading fallback
-│   ├── LoginModal.tsx            # Secure portal authentication modal
-│   ├── MagneticButton.tsx        # Interactive UI micro-animation button
-│   ├── MedicalServices.tsx       # Comprehensive medical offerings showcase
-│   ├── Mission.tsx               # Corporate vision and values statement
-│   ├── ScrollToTop.tsx           # Floating viewport navigation utility
-│   ├── Solutions.tsx             # Enterprise healthcare service modules
-│   └── Welcome.tsx               # Initial welcome greeting banner
-├── public/                       # Static public assets (favicon, logos)
-├── server/                       # Node.js Express backend service
-│   ├── .env.example              # Template environment variables
-│   ├── .gitignore                # Server-specific ignore rules
-│   ├── README.md                 # Backend service documentation
-│   ├── emailTemplate.js          # HTML email template generator for applicants
-│   ├── index.js                  # Express API router and email processor
-│   └── package.json              # Backend dependencies and scripts
-├── utils/                        # Shared utility functions and i18n
-│   └── i18n.tsx                  # Localization context and dictionary helper
-├── App.tsx                       # Root application component orchestrating views
-├── index.html                    # HTML entry point and Tailwind import
-├── index.tsx                     # React DOM mounting entry point
-├── metadata.json                 # Application permission and metadata rules
-├── package.json                  # Frontend dependencies and npm scripts
-├── translations-helper.js        # Translation parser and helper utilities
-├── tsconfig.json                 # TypeScript compiler options
-├── types.ts                      # Shared TypeScript interfaces and types
-├── vite.config.ts                # Vite bundler configuration
-├── QUICKSTART.md                 # Rapid onboarding guide
-├── PRIVACY_POLICY.md             # Data compliance and privacy policy
-├── TERMS_OF_SERVICE.md           # Enterprise terms of service
-└── deploy.bat                    # Windows batch deployment script
+├── components/                     # React UI components
+│   ├── BentoGrid.tsx
+│   ├── Careers.tsx
+│   ├── ClientPortal.tsx
+│   ├── Customized.tsx
+│   ├── Footer.tsx
+│   ├── Header.tsx
+│   ├── Hero.tsx
+│   ├── LoadingScreen.tsx
+│   ├── LoginModal.tsx
+│   ├── MagneticButton.tsx
+│   ├── MedicalServices.tsx
+│   ├── Mission.tsx
+│   ├── ScrollToTop.tsx
+│   ├── Solutions.tsx
+│   └── Welcome.tsx
+├── public/                         # Static public assets and favicon
+├── server/                         # Express backend mail & application service
+│   ├── .env.example                # Environment variables template
+│   ├── README.md                   # Backend operational documentation
+│   ├── emailTemplate.js            # HTML email templates for notifications
+│   ├── index.js                    # Express application entry point
+│   └── package.json                # Backend dependency declarations
+├── utils/                          # Shared utilities and i18n logic
+│   └── i18n.tsx
+├── App.tsx                         # Root React application container
+├── index.html                      # HTML entry point with metadata
+├── index.tsx                       # React DOM root mounting script
+├── metadata.json                   # Project interface attributes & metadata
+├── package.json                    # Frontend script and dependency manifests
+├── tsconfig.json                   # TypeScript compiler configuration
+└── vite.config.ts                  # Vite build tool configuration
 ```
 
 ---
 
 ## 🧩 Main Modules & Technical Breakdown
 
-### Frontend Modules
-* **`App.tsx`**: Serves as the central state coordinator, managing active views, modal toggling, and global layout wrappers.
-* **`index.html`**: Configures meta tags, favicon bindings, and root mounting nodes for the Vite React bundle.
-* **`index.tsx`**: Bootstraps the React application by hydrating `App.tsx` into the DOM root under strict mode.
-* **`metadata.json`**: Declares application metadata and permissions configurations for runtime inspection.
-* **`package.json`**: Defines frontend packages (`framer-motion`, `lucide-react`, `react`, `react-dom`) and build pipelines.
+### `README.md`
+Comprehensive repository documentation outlining architecture, tech stack, features, and project overview.
 
-### Backend Modules (`server/`)
-* **`server/README.md`**: Provides specific operational notes for the email notification pipeline and SMTP security.
-* **`server/index.js`**: Implements the Express HTTP server, handling CORS policies, request validation, unique applicant ID generation, and Nodemailer dispatch.
-* **`server/package.json`**: Manages backend production dependencies (`express`, `cors`, `nodemailer`, `dotenv`).
+### `index.html`
+Main HTML entry point configured with Tailwind CSS styles, custom fonts, and theme definitions for Sinai Connect.
+
+### `index.tsx`
+React application entry point mounting the root App component within strict mode.
+
+### `metadata.json`
+Metadata configuration file describing the Sinai Connect V2 project details and interface attributes.
+
+### `package-lock.json`
+Locked dependency tree and exact version mapping for frontend dependencies and development tools.
+
+### `package.json`
+Defines project scripts, metadata, and dependencies for the Vite-powered React frontend.
+
+### `server/README.md`
+Backend setup and API usage instructions for the email-only job application submission service.
+
+### `server/index.js`
+Express backend server that processes job applications, generates applicant IDs, and dispatches notification emails via Nodemailer.
+
+### `server/package-lock.json`
+Locked dependency tree for the backend server modules.
+
+### `server/package.json`
+Defines scripts and dependencies for running the Sinai Connect backend email notification server.
 
 ---
 
-## 🖥️ Script Execution & Operational Matrix
+## 🔌 API & Script Execution Matrix
 
-Execute the following commands from the root or server directories depending on the execution target:
-
-| Ecosystem | Command | Description |
+### Frontend NPM Scripts (`package.json`)
+| Command | Action | Description |
 | :--- | :--- | :--- |
-| **Frontend** | `npm run dev` | Starts the local Vite development server with HMR. |
-| **Frontend** | `npm run build` | Type-checks code with `tsc` and compiles optimized production assets into `dist/`. |
-| **Frontend** | `npm run lint` | Runs ESLint across all TypeScript files with strict zero-warning policies. |
-| **Frontend** | `npm run preview` | Locally previews the production build prior to deployment. |
-| **Frontend** | `npm run deploy` | Builds the project and deploys static assets to GitHub Pages via `gh-pages`. |
-| **Backend** | `cd server && npm start` | Boots the Express email micro-service in production mode. |
-| **Backend** | `cd server && npm run dev` | Boots the Express server with live reload via Node. |
+| `npm run dev` | `vite` | Starts the local Vite development server with HMR. |
+| `npm run build` | `tsc && vite build` | Typechecks code and generates production bundles in `dist/`. |
+| `npm run lint` | `eslint . --ext ts,tsx ...` | Executes strict static code analysis and linting checks. |
+| `npm run preview` | `vite preview` | Locally preview production build output. |
+| `npm run deploy` | `gh-pages -d dist` | Publishes the production build to GitHub Pages. |
+
+### Backend Server Scripts (`server/package.json`)
+| Command | Action | Description |
+| :--- | :--- | :--- |
+| `node index.js` | `node index.js` | Launches the Express notification and application processing service. |
 
 ---
 
 ## 🛡️ Security & Configuration Isolation
 
-* **Transport Layer Security**: All API endpoints communicate strictly over HTTPS in production environments.
-* **Environment Secret Isolation**: Backend SMTP credentials are isolated within `server/.env` and are strictly excluded from version control via `.gitignore`.
-* **CORS Policy Enforcement**: The Express backend restricts inbound HTTP requests to authorized frontend origins.
-* **Input Sanitization**: Client-side application inputs are validated prior to JSON payload transmission to prevent malformed data injection.
+* **Environment Segregation**: Sensitive SMTP secrets and private keys are strictly isolated to `server/.env` and excluded via `server/.gitignore`.
+* **Input Sanitization**: Backend endpoints process incoming payloads through structured validators before formatting notification emails.
+* **CORS Policy**: Configured strictly within `server/index.js` to accept requests only from authorized client origins in production environments.
 
 ---
 
 ## 🚀 Deployment & Environment Matrix
 
-| Environment | Target Platform | Build Command | Deployment Trigger |
-| :--- | :--- | :--- | :--- |
-| **Development** | Local Machine (`localhost:5173`) | `npm run dev` | Manual developer execution |
-| **Staging / Production** | GitHub Pages (`gh-pages`) | `npm run deploy` | Manual release or GitHub Actions CI/CD (`.github/workflows/deploy.yml`) |
-| **Backend API** | Node.js Cloud Host (Render / Heroku) | `cd server && npm start` | Automated webhook or container push |
+| Target Environment | Execution Target | Configuration / Command |
+| :--- | :--- | :--- |
+| **Local Development** | Vite Dev Server | `npm run dev` |
+| **Production Build** | Static Asset Generation | `npm run build` |
+| **Cloud Hosting (Pages)** | GitHub Pages | `npm run deploy` (via `.github/workflows/deploy.yml`) |
+| **Backend Service** | Node.js Runtime | `cd server && npm install && node index.js` |
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from the community to help improve SinaiConnect. Whether it is fixing bugs, proposing new features, or enhancing documentation, please follow the guidelines below:
+
+### 1. Reporting Bugs & Issues
+* Use the [GitHub Issues](https://github.com/Bavly-Hamdy/SinaiConnect/issues) tracker.
+* Provide a clear description of the issue, steps to reproduce, expected vs. actual behavior, and relevant environment details (OS, Node version, browser).
+
+### 2. Submitting Pull Requests (PRs)
+1. **Fork the Repository** and clone your fork locally.
+2. **Create a Feature Branch** from `main`:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. **Implement Changes** ensuring adherence to the existing TypeScript types and codebase structure.
+4. **Run Code Linter and Build Verification**:
+   ```bash
+   npm run lint
+   npm run build
+   ```
+5. **Commit Changes** using clear, descriptive commit messages.
+6. **Push to Your Fork** and submit a Pull Request against the `main` branch of `Bavly-Hamdy/SinaiConnect`.
+
+### 3. Code Style & Standards
+* **TypeScript**: Strict type definitions must be maintained; avoid the use of `any` where strong typing is feasible.
+* **Linting**: All submissions must pass `npm run lint` without warnings or errors.
+* **Styling**: Use Tailwind CSS utility classes consistent with the established design system.
 
 ---
 
 ## 👥 Authors & Contributors
 
-* **Bavly-Hamdy** — *Lead System Architect & Repository Owner*
-* **Community Contributors** — *Engineering Team & Healthcare UX Specialists*
+* **Bavly Hamdy** - *Lead Architect & Maintainer* - [Bavly-Hamdy](https://github.com/Bavly-Hamdy)
+* **Community Contributors** - *Engineering & Documentation Support*
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License**. 
-
-```text
-MIT License
-
-Copyright (c) 2026 Bavly-Hamdy
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for full details.
