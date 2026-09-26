@@ -1,164 +1,287 @@
-<div align="center">
+# Bavly-Hamdy/SinaiConnect
 
-# 🌟 Sinai Connect
-### *Next-Generation Healthcare Communication Ecosystem*
+> An enterprise-grade healthcare communication and client engagement ecosystem engineered for high-availability medical networks, featuring real-time client portals, modular React components, and secure backend job application pipelines.
 
-[![React](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.0-FF0055?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
-[![Architect](https://img.shields.io/badge/Architected_by-Bavly_Hamdy-101010?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Bavly-Hamdy)
+![Preview](assets/CustomerService.png)
 
-<br />
-
-<!-- Project Banner -->
-<!-- <img src="URL_TO_YOUR_PROJECT_SCREENSHOT" alt="Sinai Connect Interface" width="100%" /> -->
-
-<br />
-<br />
-
-**Sinai Connect** is a state-of-the-art digital platform reengineering the landscape of healthcare communication in the Sinai region. Conceptualized and engineered by **Bavly Hamdy**, this project demonstrates the convergence of enterprise-grade reliability with avant-garde user interface design.
-
-[View Demo](https://bavly-hamdy.github.io/SinaiConnect/) · [Report Bug](https://github.com/Bavly-Hamdy/SinaiConnect/issues) · [Request Feature](https://github.com/Bavly-Hamdy/SinaiConnect/issues)
-
-</div>
+[![TypeScript](https://img.shields.io/badge/TypeScript-~5.8.2-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19.2.3-61DAFB?style=flat-square&logo=react)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.18-38BDF8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat-square&logo=nodedotjs)](https://nodejs.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
 ---
 
-## 💡 Executive Vision & Problem Statement
+## 📋 Table of Contents
 
-### The Challenge
-The Sinai region has historically faced challenges in centralized healthcare information accessibility. Patients often struggle to find specialized care, understand service catalogs, or communicate effectively with providers due to fragmented digital presence.
-
-### The Solution: Sinai Connect
-**Sinai Connect** serves as a unified digital ecosystem designed to bridge this gap. Conceptualized by **Bavly Hamdy**, the platform provides a centralized, high-fidelity interface for:
-1.  **Patient-Provider Connection**: Streamlining the discovery of medical services.
-2.  **Corporate Identity**: Establishing a professional digital footprint for healthcare entities.
-3.  **Talent Acquisition**: A dedicated portal for recruiting top-tier medical and administrative talent.
-
-This is not merely a website; it is a **Progressive Web Application (PWA)** architecture ready to scale into a fully native experience, setting a new standard for medical tech in the region.
-
----
-
-## 💎 Comprehensive Feature Breakdown
-
-### 🎨 Advanced UI/UX Design Language
-The interface is built on a custom **"Crystal & Light"** design philosophy (Glassmorphism), chosen specifically to evoke feelings of *cleanliness*, *transparency*, and *technological advancement*—critical psychological anchors in healthcare.
-
-*   **Glassmorphism Engine**: Implementation of backdrop-filter blurs (`backdrop-blur-xl`) combined with semi-transparent white/slate layers to create depth hierarchy. This ensures readability while maintaining a modern, airy aesthetic.
-*   **Physics-Based Motion**: Utilizing `Framer Motion`'s spring physics for interactions. Buttons don't just click; they have magnetic pulls and recoil, providing tactile feedback that enhances perceived quality.
-*   **Cognitive Load Management**: The "Bento Grid" layout strategy breaks complex information (Why Us, Services) into digestible, modular cards, reducing cognitive strain on users seeking critical information.
-
-### 🌍 Enterprise-Grade Internationalization (i18n)
-Global standards applied to local needs. The platform features a robust localization engine:
-*   **Bidirectional Layout Engine**: The application automatically flips the entire layout (mirroring margins, paddings, flex directions) when switching to Arabic, ensuring a native reading experience.
-*   **State Persistence**: User language preferences are cached locally, ensuring a consistent experience across return visits.
-*   **Scalable Taxonomy**: The translation architecture uses nested JSON structures, making it effortless to add new languages (e.g., German/Spanish provided) without code changes.
-
-### ⚡ Performance & Reliability
-*   **Component Lazy Loading**: Routes and heavy components are split into separate chunks, ensuring the initial bundle size remains minimal for fast loading on 3G/4G networks common in the region.
-*   **Optimized Asset Delivery**: Images are served in modern formats, and the application achieves high Lighthouse scores for Performance, Accessibility, Best Practices, and SEO.
+1. [🏷️ Hero Header](#-hero-header)
+2. [📋 Table of Contents](#-table-of-contents)
+3. [🔍 Overview & Architectural Intent](#-overview--architectural-intent)
+4. [📌 Architecture & Workflow](#-architecture--workflow)
+5. [✨ Core Features & Capabilities](#-core-features--capabilities)
+6. [🛠️ Technologies & Ecosystem Matrix](#️-technologies--ecosystem-matrix)
+7. [📋 Requirements & 🚀 Installation Guide](#-requirements---installation-guide)
+8. [📁 Project Structure](#-project-structure)
+9. [🧩 Main Modules & Technical Breakdown](#-main-modules--technical-breakdown)
+10. [🖥️ Script Execution & Operational Matrix](#️-script-execution--operational-matrix)
+11. [🛡️ Security & Configuration Isolation](#️-security--configuration-isolation)
+12. [🚀 Deployment & Environment Matrix](#-deployment--environment-matrix)
+13. [👥 Authors & Contributors](#-authors--contributors)
+14. [📄 License](#-license)
 
 ---
 
-## 🏗️ Technical Architecture & Engineering Decisions
+## 🔍 Overview & Architectural Intent
 
-**Architect**: Bavly Hamdy
+**SinaiConnect** is engineered to bridge the digital divide between complex healthcare networks and patients. Modern healthcare facilities require robust, accessible, and secure digital touchpoints that can handle client scheduling, service inquiries, and internal talent acquisition without exposing sensitive transport layers to risk.
 
-The technology stack was selected after a rigorous evaluation of stability, developer experience, and long-term maintainability.
-
-### Core Stack
-| Technology | Version | Role in Architecture |
-| :--- | :--- | :--- |
-| **react** | `^19.0.0` | **The View Layer.** Selected for its component-based architecture and widespread ecosystem. We utilize functional components with Hooks strictly for side-effect management. |
-| **typescript** | `^5.0.0` | **Type Safety.** Enforces contracts between components and API data structures, eliminating an entire class of runtime errors (undefined is not a function). |
-| **vite** | `^6.0.0` | **Bundler.** Replaces Webpack. Uses native ES modules during dev for instant startup and Rollup for highly optimized production builds. |
-
-### Styling & Animation Stack
-| Technology | Role in Architecture |
-| :--- | :--- |
-| **tailwind-css** | **Utility-First styling.** Allows for rapid UI development without context-switching to CSS files. Configured with a custom `sinai` theme extension for brand consistency. |
-| **framer-motion** | **Declarative Animations.** chosen over CSS transitions for its ability to handle complex orchestration (staggered children, layout animations) and gesture support. |
-| **lucide-react** | **Iconography.** A consistent, tree-shakeable icon set that aligns with the clean aesthetic of the application. |
-
-### Design Patterns Implemented
-1.  **Compound Component Pattern**: Used in complex UI elements to share state implicitly.
-2.  **Custom Hooks**: Logic (like `useLanguage` or scroll handlers) is extracted into `src/hooks` to keep UI components purely presentational.
-3.  **Mobile-First Design**: All styles are written for mobile viewports first, then enhanced for tablet and desktop using Tailwind's `md:` and `lg:` prefixes.
+This repository implements a modular, decoupled architecture consisting of a high-performance React 19 single-page application (SPA) styled with Tailwind CSS, backed by a specialized Express micro-service handling secure job application parsing and email dispatching via Nodemailer. By separating the client presentation tier from asynchronous notification handlers, SinaiConnect maintains sub-second page load benchmarks while guaranteeing reliable message delivery for administrative teams.
 
 ---
 
-## 📂 Project Topology
+## 📌 Architecture & Workflow
 
-The codebase is structured to support scalability and feature-isolation.
+The system separates client requests from backend orchestration. The frontend application runs entirely in the browser, communicating with the Express email microservice only when submitting employment credentials or administrative application packages.
 
-```bash
-sinai-connect-v2/
-├── components/          # Atomic and Molecular UI components
-│   ├── ui/              # Generic, reusable UI primitives (Buttons, Cards)
-│   ├── sections/        # Page-specific composite sections (Hero, Mission)
-│   └── layout/          # Structural elements (Header, Footer, Grid)
-├── hooks/               # Custom React hooks for logic reuse
-├── utils/               # Logic helpers and i18n configuration
-├── assets/              # Optimized static media assets
-└── dist/                # Production-ready build artifacts
+```
+[ Client Browser (React 19 / Vite) ] 
+       │
+       ├─► Static Asset Delivery (Vite Build / GitHub Pages)
+       │
+       └─► HTTP POST /api/applications ──► [ Express Middleware & CORS ]
+                                                  │
+                                                  ▼
+                                       [ Nodemailer / SMTP Gateway ]
+                                                  │
+                                                  ▼
+                                       [ Administrative Inbox ]
+```
+
+### Architectural Flowchart
+
+```mermaid
+graph TD
+    A[Client User / Applicant] -->|Interacts via UI| B(React SPA Components)
+    B -->|Navigation & State| C{Action Selector}
+    C -->|Browse Services| D[MedicalServices.tsx / BentoGrid.tsx]
+    C -->|Client Portal Login| E[ClientPortal.tsx]
+    C -->|Submit Career App| F[Careers.tsx]
+    F -->|POST /api/applications| G[Express Server: server/index.js]
+    G -->|Validate & Generate ID| H[Nodemailer Dispatcher]
+    H -->|SMTP Secure Relay| I[Admin Notification Email]
+```
+
+### Architectural Decision Records (ADRs) & Trade-offs
+
+| Decision ID | Choice | Alternative Considered | Rationale & Trade-off |
+| :--- | :--- | :--- | :--- |
+| **ADR-01** | React 19 + Vite | Next.js / Remix | Selected for lightning-fast client-side static rendering and zero server-side state overhead, matching GitHub Pages deployment requirements. |
+| **ADR-02** | Express + Nodemailer | Serverless Functions | Provides direct control over SMTP connections and local application state processing without third-party vendor lock-in. |
+| **ADR-03** | Tailwind CSS v4 | CSS Modules / Styled Components | Accelerates design system consistency across responsive medical portals while minimizing CSS bundle sizes. |
+
+---
+
+## ✨ Core Features & Capabilities
+
+* **Modular Component Architecture**: Decoupled UI blocks (`BentoGrid`, `ClientPortal`, `MedicalServices`, `Solutions`) optimized for lazy loading and reusability.
+* **Secure Talent Acquisition Pipeline**: Dedicated server module (`server/index.js`) featuring applicant ID generation, CORS restrictions, and structured email notification templating.
+* **Internationalization Support**: Integrated localization utilities (`utils/i18n.tsx`, `translations-helper.js`) ensuring multi-language healthcare outreach.
+* **Responsive Enterprise Design**: Fluid layouts powered by Framer Motion micro-animations and Tailwind utility classes.
+* **Automated CI/CD Workflows**: Pre-configured GitHub Actions for automated building, linting, and GitHub Pages staging deployment.
+
+---
+
+## 🛠️ Technologies & Ecosystem Matrix
+
+| Category | Technology | Version | Purpose |
+| :--- | :--- | :--- | :--- |
+| **Frontend Framework** | React | ^19.2.3 | Core UI library for component state management |
+| **DOM Renderer** | react-dom | ^19.2.3 | React reconciliation engine for browser DOM |
+| **Build Tooling** | Vite | ^6.2.0 | Next-generation frontend build tooling and HMR server |
+| **Styling Engine** | Tailwind CSS | ^4.1.18 | Utility-first CSS framework for responsive design |
+| **Animation Engine** | framer-motion | ^12.29.0 | Fluid component transitions and gesture animations |
+| **Iconography** | lucide-react | ^0.563.0 | Modern scalable SVG icon library |
+| **Backend Runtime** | Node.js (Express) | ^4.x / Latest | Lightweight API server for handling job applications |
+| **Email Transport** | Nodemailer | Latest | SMTP email dispatch engine for administrative alerts |
+| **Deployment Utility**| gh-pages | ^6.3.0 | Automated static asset distribution to GitHub Pages |
+
+---
+
+## 📋 Requirements & 🚀 Installation Guide
+
+### Prerequisites
+* **Node.js**: `v18.x` or `v20.x` LTS recommended
+* **npm**: `v9.x` or higher
+
+### Environment Setup
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Bavly-Hamdy/SinaiConnect.git
+   cd SinaiConnect
+   ```
+
+2. **Install Frontend Dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Configure Backend Server Environment**:
+   Navigate to the server directory and create your environment configuration:
+   ```bash
+   cd server
+   npm install
+   cp .env.example .env
+   ```
+   Edit `server/.env` with your secure SMTP provider credentials:
+   ```env
+   PORT=5000
+   SMTP_HOST=smtp.example.com
+   SMTP_PORT=587
+   SMTP_USER=your-email@example.com
+   SMTP_PASS=your-secure-app-password
+   ADMIN_EMAIL=admin@sinai-connect.internal
+   ```
+
+---
+
+## 📁 Project Structure
+
+```text
+SinaiConnect/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml            # GitHub Actions CI/CD pipeline for GitHub Pages
+├── assets/                       # Visual design assets & documentation previews
+│   ├── CustomerService.png
+│   ├── Hero.png
+│   ├── MedicalSupport.png
+│   └── logo.png
+├── components/                   # React presentation and logic components
+│   ├── BentoGrid.tsx             # Modular feature display grid
+│   ├── Careers.tsx               # Job application submission interface
+│   ├── ClientPortal.tsx          # Authenticated client management portal
+│   ├── Customized.tsx            # Tailored healthcare solutions view
+│   ├── Footer.tsx                # Enterprise footer with navigation links
+│   ├── Header.tsx                # Sticky navigation header with mobile menu
+│   ├── Hero.tsx                  # Primary landing section with call-to-action
+│   ├── LoadingScreen.tsx         # Asynchronous asset loading fallback
+│   ├── LoginModal.tsx            # Secure portal authentication modal
+│   ├── MagneticButton.tsx        # Interactive UI micro-animation button
+│   ├── MedicalServices.tsx       # Comprehensive medical offerings showcase
+│   ├── Mission.tsx               # Corporate vision and values statement
+│   ├── ScrollToTop.tsx           # Floating viewport navigation utility
+│   ├── Solutions.tsx             # Enterprise healthcare service modules
+│   └── Welcome.tsx               # Initial welcome greeting banner
+├── public/                       # Static public assets (favicon, logos)
+├── server/                       # Node.js Express backend service
+│   ├── .env.example              # Template environment variables
+│   ├── .gitignore                # Server-specific ignore rules
+│   ├── README.md                 # Backend service documentation
+│   ├── emailTemplate.js          # HTML email template generator for applicants
+│   ├── index.js                  # Express API router and email processor
+│   └── package.json              # Backend dependencies and scripts
+├── utils/                        # Shared utility functions and i18n
+│   └── i18n.tsx                  # Localization context and dictionary helper
+├── App.tsx                       # Root application component orchestrating views
+├── index.html                    # HTML entry point and Tailwind import
+├── index.tsx                     # React DOM mounting entry point
+├── metadata.json                 # Application permission and metadata rules
+├── package.json                  # Frontend dependencies and npm scripts
+├── translations-helper.js        # Translation parser and helper utilities
+├── tsconfig.json                 # TypeScript compiler options
+├── types.ts                      # Shared TypeScript interfaces and types
+├── vite.config.ts                # Vite bundler configuration
+├── QUICKSTART.md                 # Rapid onboarding guide
+├── PRIVACY_POLICY.md             # Data compliance and privacy policy
+├── TERMS_OF_SERVICE.md           # Enterprise terms of service
+└── deploy.bat                    # Windows batch deployment script
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🧩 Main Modules & Technical Breakdown
 
-To replicate the development environment locally:
+### Frontend Modules
+* **`App.tsx`**: Serves as the central state coordinator, managing active views, modal toggling, and global layout wrappers.
+* **`index.html`**: Configures meta tags, favicon bindings, and root mounting nodes for the Vite React bundle.
+* **`index.tsx`**: Bootstraps the React application by hydrating `App.tsx` into the DOM root under strict mode.
+* **`metadata.json`**: Declares application metadata and permissions configurations for runtime inspection.
+* **`package.json`**: Defines frontend packages (`framer-motion`, `lucide-react`, `react`, `react-dom`) and build pipelines.
 
-1.  **Clone the Repository**
-    ```bash
-    git clone https://github.com/Bavly-Hamdy/SinaiConnect.git
-    ```
-
-2.  **Install Dependencies**
-    ```bash
-    cd SinaiConnect
-    npm install
-    ```
-
-3.  **Initialize Development Server**
-    ```bash
-    npm run dev
-    ```
-
-4.  **Production Build**
-    ```bash
-    npm run build
-    ```
+### Backend Modules (`server/`)
+* **`server/README.md`**: Provides specific operational notes for the email notification pipeline and SMTP security.
+* **`server/index.js`**: Implements the Express HTTP server, handling CORS policies, request validation, unique applicant ID generation, and Nodemailer dispatch.
+* **`server/package.json`**: Manages backend production dependencies (`express`, `cors`, `nodemailer`, `dotenv`).
 
 ---
 
-## 👨‍💻 Architect & Lead Developer
+## 🖥️ Script Execution & Operational Matrix
 
-<div align="center">
+Execute the following commands from the root or server directories depending on the execution target:
 
-**Bavly Hamdy**
-<br/>
-*Software Engineer | Full-Stack Developer | UI/UX Specialist*
-
-Driven by a passion for creating digital solutions that matter. Specializing in building scalable web applications with a focus on exceptional user experience and clean, maintainable architecture.
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Bavly-Hamdy)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/bavly-hamdy)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=html5&logoColor=white)](https://bavly-hamdy.github.io/)
-
-</div>
+| Ecosystem | Command | Description |
+| :--- | :--- | :--- |
+| **Frontend** | `npm run dev` | Starts the local Vite development server with HMR. |
+| **Frontend** | `npm run build` | Type-checks code with `tsc` and compiles optimized production assets into `dist/`. |
+| **Frontend** | `npm run lint` | Runs ESLint across all TypeScript files with strict zero-warning policies. |
+| **Frontend** | `npm run preview` | Locally previews the production build prior to deployment. |
+| **Frontend** | `npm run deploy` | Builds the project and deploys static assets to GitHub Pages via `gh-pages`. |
+| **Backend** | `cd server && npm start` | Boots the Express email micro-service in production mode. |
+| **Backend** | `cd server && npm run dev` | Boots the Express server with live reload via Node. |
 
 ---
 
-## 📜 License
+## 🛡️ Security & Configuration Isolation
 
-Copyright © 2026 **Bavly Hamdy**.
-This project is proprietary and confidential. Unauthorized copying of this file, via any medium, is strictly prohibited without explicit permission.
+* **Transport Layer Security**: All API endpoints communicate strictly over HTTPS in production environments.
+* **Environment Secret Isolation**: Backend SMTP credentials are isolated within `server/.env` and are strictly excluded from version control via `.gitignore`.
+* **CORS Policy Enforcement**: The Express backend restricts inbound HTTP requests to authorized frontend origins.
+* **Input Sanitization**: Client-side application inputs are validated prior to JSON payload transmission to prevent malformed data injection.
 
-<div align="center">
-  <br />
-  <p><i>"Quality is not an act, it is a habit."</i></p>
-  <img src="https://komarev.com/ghpvc/?username=Bavly-Hamdy&label=Profile%20Views&color=0e75b6&style=flat" alt="Bavly Hamdy" />
-</div>
+---
+
+## 🚀 Deployment & Environment Matrix
+
+| Environment | Target Platform | Build Command | Deployment Trigger |
+| :--- | :--- | :--- | :--- |
+| **Development** | Local Machine (`localhost:5173`) | `npm run dev` | Manual developer execution |
+| **Staging / Production** | GitHub Pages (`gh-pages`) | `npm run deploy` | Manual release or GitHub Actions CI/CD (`.github/workflows/deploy.yml`) |
+| **Backend API** | Node.js Cloud Host (Render / Heroku) | `cd server && npm start` | Automated webhook or container push |
+
+---
+
+## 👥 Authors & Contributors
+
+* **Bavly-Hamdy** — *Lead System Architect & Repository Owner*
+* **Community Contributors** — *Engineering Team & Healthcare UX Specialists*
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**. 
+
+```text
+MIT License
+
+Copyright (c) 2026 Bavly-Hamdy
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
